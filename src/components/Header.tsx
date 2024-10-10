@@ -27,8 +27,8 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
 
   return (
      <>
-     <header className='font-sans sticky top-0 scroll-smooth z-10 bg-rose-100'>
-      <nav aria-label='Global' className='mx-auto flex items-center justify-evenly p-6 max-w-6xl lg:px-8'>
+     <header className='font-sans sticky top-0 scroll-smooth z-10 bg-headerColor text-headerFooterText border-black border-b p-2 lg:border-none'>
+      <nav aria-label='Global' className='mx-auto flex items-center justify-evenly p-6 max-w-6xl lg:px-8  lg:border-black lg:rounded-3xl lg:border'>
         <div className='flex lg:flex-1'>
           <Link to='/' className='-m-1.5 p-1.5'>
           <span className='text-2xl'>{logoName}</span>
@@ -38,7 +38,7 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
           <button 
           type="button"
           onClick={() => setMobileMenuOpen(true)}
-          className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-800'
+          className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5'
           >
           <span className='sr-only'>Atidaryti</span>
           <TfiAlignJustify aria-hidden="true" className='h-6 w-6'/>
@@ -48,8 +48,8 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
         {navbarLinks.map((item) => (
           <Link to={item.path}
           className={ location.pathname === item.path 
-            ? 'text-rose-500 font-semibold hover:text-rose-300 transition duration-500 decoration-rose-500 hover:decoration-rose-300 text-2xl px-3 cursor-pointer' 
-            : 'hover:text-rose-300  transition duration-500 text-gray-800 text-2xl px-3 cursor-pointer'}
+            ? 'text-headerFooterText font-semibold  underline underline-offset-8 decoration-buttonColor  text-2xl px-3 cursor-pointer' 
+            : 'hover:scale-105 transition duration-500  text-2xl px-3 cursor-pointer'}
           key={item.name}           
           >
           <span className='lg:flex items-center gap-1'>
@@ -61,22 +61,25 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
         </PopoverGroup>
         <div className='hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-3'>
           {navbarContacts.map((item) => (
-            <Link to={item.path}
+            <a href={item.path}
             >
               <button 
-              className='flex justify-center items-center gap-2 text-gray-800 font-semibold hover:text-rose-100 text-xl px-4 py-4 bg-gradient-to-r from-rose-400 to-rose-500 hover:bg-gradient-to-l hover:from-rose-500 hover:to-rose-400 rounded-full shadow-md border border-rose-100 cursor-pointer transform  hover:scale-110 transition-transform duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-rose-500'
+              className='flex justify-center items-center gap-2 font-semibold text-textColor hover:text-headerFooterText text-xl px-4 py-4 bg-buttonColor rounded-full shadow lg 
+                 border border-footerColor cursor-pointer transform
+                 hover:scale-110 transition-transform duration-300 ease-in-out 
+                 focus:outline-none focus:ring-2 focus:ring-textColor'
               key={item.name}
               type="button"
               >
               {item.icon}
               </button>
-            </Link>
+            </a>
           ))}
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className='fixed inset-0 z-10 ' />
-          <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-rose-100 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 sm:border-black sm:border-l-2 ">
+          <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-headerColor px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-headerFooterText/10 sm:border-black sm:border-l-2 ">
             <div className='flex items-center justify-around'>
               <Link to='/' className='-m-1.5 p-1.5'>
               <span className='text-2xl'>{logoName}</span>
@@ -84,20 +87,20 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
               <button
               type='button'
               onClick={() => setMobileMenuOpen(false)}
-              className='-m-2.5 rounded-lg p-2.5 text-gray-800 '
+              className='-m-2.5 rounded-lg p-2.5 '
               >
                 <span className='sr-only'>Uždaryti</span>
                 <RiCloseFill aria-hidden='true' className='h-6 w-6' />
               </button>
             </div>
             <div className='mt-6 flow-root'>
-              <div className='-my-6 divide-y divide-rose-400/30'> 
-                <div className='space-y-2 py-12 sm:py-6 items-center justify-center flex flex-col sm:block '>
+              <div className='-my-6 divide-y divide-gray-800/30'> 
+                <div className='space-y-2 py-12 sm:py-6 items-center justify-center flex flex-col sm:flex sm:flex-col sm:items-start'>
                   {navbarLinks.map((item) => (
                     <Link to={item.path}
                     className={ location.pathname === item.path 
-                      ? 'text-rose-500 font-semibold hover:text-rose-300 transition duration-500  decoration-rose-500  text-3xl  py-3 sm:text-2xl px-3 cursor-pointer ' 
-                      : 'hover:text-rose-300  transition duration-500 text-gray-800 text-3xl py-3 sm:text-2xl px-3 cursor-pointer'}
+                      ? 'text-headerFooterText font-semibold  text-3xl  py-3 sm:text-2xl px-3 cursor-pointer  underline underline-offset-8 decoration-buttonColor' 
+                      : 'hover:scale-105  transition duration-500  text-3xl py-3 sm:text-2xl px-3 cursor-pointer'}
                     key={item.name}           
                     >
                       <span className='flex items-center gap-1'>{item.icon}{item.name}</span>
@@ -106,15 +109,18 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
                 </div>
                 <div className='py-6 flex flex-row justify-between '>
                 {navbarContacts.map((item) => (
-                  <Link to={item.path}
+                  <a href={item.path}
                   className='w-1/2 text-center items-center justify-center flex'>
                     <button
-                    className='flex justify-center items-center gap-2 text-gray-800 font-semibold hover:text-rose-100 border border-rose-100 text-xl px-6 py-3 bg-gradient-to-r from-rose-400 to-rose-500 hover:bg-gradient-to-l hover:from-rose-500 hover:to-rose-400 rounded-full shadow-md cursor-pointer transform hover:scale-110 transition-transform duration-300 ease-in-out w-3/4 focus:outline-none focus:ring-2 focus:ring-rose-500'
+                    className='flex justify-center items-center gap-2  font-semibold text-textColor hover:text-headerFooterText text-xl px-4 py-4 bg-buttonColor rounded-full shadow lg 
+                 border border-footerColor cursor-pointer transform 
+                 hover:scale-110 transition-transform duration-300 ease-in-out 
+                 focus:outline-none focus:ring-2 focus:ring-gray-400 w-3/4'
                     key={item.name}
                     type="button"
                     >{item.icon}
                     </button>
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>

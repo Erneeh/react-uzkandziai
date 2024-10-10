@@ -2,7 +2,7 @@ import React from 'react';
 
 const Paslaugos: React.FC = () => {
   return <>
-   <div className="bg-gradient-to-b from-rose-100 to-rose-300 h-screen">
+   <div className="bg-headerColor h-screen">
   <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-6xl py-32 sm:py-48 lg:py-56">
           <div className="flex flex-row justify-between items-center">

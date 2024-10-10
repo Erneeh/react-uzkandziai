@@ -11,19 +11,20 @@ import { GrContact } from 'react-icons/gr';
 import { BiHome } from 'react-icons/bi';
 import { FiPhone } from 'react-icons/fi';
 import { LuMessagesSquare } from 'react-icons/lu';
+import { PiForkKnife, PiForkKnifeBold } from 'react-icons/pi';
 
 const navbarProps = {
   logoName: 'Testinu.lt',
   
   navbarLinks: [
     { id: 1, name: 'Pagrindinis', path: '/', icon: <BiHome />},
-    { id: 1, name: 'Paslaugos', path: '/paslaugos', icon: <ImSpoonKnife />},
+    { id: 1, name: 'Paslaugos', path: '/paslaugos', icon: <PiForkKnifeBold />},
     { id: 1, name: 'Kontaktai', path: '/kontaktai', icon: <GrContact />},
   ],
 
   navbarContacts: [
-    {id: 1, name: 'Susisiekti', icon: <FiPhone />, path: '/skambutis'},
-    {id: 2, name: 'Parašyti', icon: <LuMessagesSquare />, path: '/zinute'},
+    {id: 1, name: 'Susisiekti', icon: <FiPhone />, path: 'tel:+862929558'},
+    {id: 2, name: 'Parašyti', icon: <LuMessagesSquare />, path: 'sms:+862929558'},
   ]
 }
 
@@ -35,11 +36,14 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
+    <>
     <Router>
       <Header {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location}/>
-      <Routes />
+      <Routes/>
       <Footer {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location}/>
     </Router>
+    </>
+    
   )
 }
 
