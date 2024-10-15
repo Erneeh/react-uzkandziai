@@ -38,7 +38,7 @@ const PhotoDiv = () => {
             onClick={() => handleImageClick(items.photo)} />
                 {selectedImage && (
                     <div
-                        className="fixed inset-0 flex flex-col items-center justify-center bg-black bg-opacity-20 cursor-pointer"
+                        className="fixed inset-0 z-10 flex flex-col items-center justify-center bg-black bg-opacity-20 cursor-pointer"
                         onClick={() => setSelectedImage(null)}
                     ><img
                             src={selectedImage}

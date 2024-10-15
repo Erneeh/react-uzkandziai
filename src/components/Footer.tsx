@@ -21,8 +21,7 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={handleScrollToTop}
-      className='lg:w-full w-1/4 flex justify-center items-center gap-2 text-textColor hover:text-headerFooterText font-semibold text-xl px-4 py-3 
-    bg-buttonColor rounded-full shadow lg 
+      className='lg:w-full w-1/4 flex justify-center items-center gap-2 text-textColor hover:text-headerFooterText font-semibold text-xl px-4 py-3 bg-buttonColor rounded-full shadow lg 
       border border-footerColor cursor-pointer transform 
       hover:scale-110 transition-transform duration-300 ease-in-out 
       focus:outline-none focus:ring-2 focus:ring-gray-400'
