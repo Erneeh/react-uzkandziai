@@ -3,7 +3,7 @@ import photo1 from '../assets/photo1.jpg'
 import photo2 from '../assets/photo2.jpg'
 import photo3 from '../assets/photo3.jpg'
 import photo4 from '../assets/photo4.jpg'
-import photo5 from '../assets/photo5.jpg'
+import photo7 from '../assets/photo7.jpg'
 import photo6 from '../assets/photo6.jpg'
 
 
@@ -13,7 +13,7 @@ const darbai = [
     { photo: photo2 },
     { photo: photo3 },
     { photo: photo4 },
-    { photo: photo5 },
+    { photo: photo7 },
     { photo: photo6 }
   ];
 
@@ -47,7 +47,7 @@ const PhotoDiv = () => {
                     </div>
                 )}
         </>
-    ))};,
+    ))}
     </>
   )
   
