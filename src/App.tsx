@@ -18,7 +18,7 @@ const navbarProps = {
   
   navbarLinks: [
     { id: 1, name: 'Pagrindinis', path: '/', icon: <BiHome />},
-    { id: 1, name: 'Paslaugos', path: '/paslaugos', icon: <PiForkKnifeBold />},
+    ///{ id: 1, name: 'Paslaugos', path: '/paslaugos', icon: <PiForkKnifeBold />},
     { id: 1, name: 'Kontaktai', path: '/kontaktai', icon: <GrContact />},
   ],
 
