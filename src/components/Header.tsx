@@ -21,7 +21,7 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 0) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
