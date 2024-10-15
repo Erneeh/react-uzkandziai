@@ -55,8 +55,8 @@ const Footer = ({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
           {navbarLinks.map((item) => (
           <Link to={item.path}
           className={ location.pathname === item.path 
-            ? 'text-textColor font-semibold transition duration-500 text-xl lg:text-2xl px-3 cursor-pointer' 
-            : 'hover:scale-105 transition duration-500 text-xl lg:text-2xl px-3 cursor-pointer'}
+            ? 'text-textColor font-semibold transition  text-xl lg:text-2xl px-3 cursor-pointer' 
+            : 'hover:scale-105 transition  text-xl lg:text-2xl px-3 cursor-pointer'}
           key={item.name}           
           >
           <span className='flex items-center gap-1 rounded-2xl p-2.5 '>

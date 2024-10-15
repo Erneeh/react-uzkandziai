@@ -26,7 +26,7 @@ const kontaktai = [
 	},
 ];
 
-const Kontaktai: React.FC = () => {
+function Kontaktai() {
   return <>
    <div className="bg-headerColor min-h-screen">
    <div className="">

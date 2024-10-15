@@ -6,7 +6,7 @@ import Photos from '../containers/Photos';
 
 function Home()  {
   return <>
-  <div className="bg-backgroundColor  text-headerFooterText py-24 sm:py-2 ">
+  <div className="bg-backgroundColor text-headerFooterText py-24 sm:py-2 ">
     <Heading></Heading>
     <About></About>
     <Photos></Photos>

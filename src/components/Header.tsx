@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Home from '../pages/Home';
 import { useLocation, Location, Link } from 'react-router-dom';
 import { TfiAlignJustify } from 'react-icons/tfi';
@@ -23,12 +23,28 @@ interface NavbarProps {
 function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobileMenuOpen}: NavbarProps) {
   const location = useLocation();
  
-  
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
      <>
-     <header className='font-sans sticky top-0 scroll-smooth z-10 bg-headerColor text-headerFooterText border-black border-b p-2 lg:border-none'>
-      <nav aria-label='Global' className='mx-auto flex items-center justify-evenly p-6 max-w-6xl lg:px-8  lg:border-black lg:rounded-3xl lg:border'>
+     <header className={`font-sans sticky top-0 scroll-smooth z-10 bg-headerColor text-headerFooterText transform duration-100 lg:border-none border-b border-black ${ isScrolled ? "bg-inherit " : " p-2 lg:border-none" }`}>
+      <nav aria-label='Global' className={`mx-auto flex items-center justify-evenly p-6 max-w-6xl lg:px-8  lg:border-black  ${ isScrolled ? "bg-headerColor lg:rounded-b-3xl lg:border-b lg:border-x" : "bg-headerColor lg:rounded-3xl lg:border"}`}>
         <div className='flex lg:flex-1'>
           <Link to='/' className='-m-1.5 p-1.5'>
           <span className='text-2xl'>{logoName}</span>
@@ -49,7 +65,7 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
           <Link to={item.path}
           className={ location.pathname === item.path 
             ? 'text-headerFooterText font-semibold  underline underline-offset-8 decoration-buttonColor  text-2xl px-3 cursor-pointer' 
-            : 'hover:scale-105 transition duration-500  text-2xl px-3 cursor-pointer'}
+            : 'hover:scale-105 transition  text-2xl px-3 cursor-pointer'}
           key={item.name}           
           >
           <span className='lg:flex items-center gap-1'>
@@ -100,7 +116,7 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
                     <Link to={item.path}
                     className={ location.pathname === item.path 
                       ? 'text-headerFooterText font-semibold  text-3xl  py-3 sm:text-2xl px-3 cursor-pointer  underline underline-offset-8 decoration-buttonColor' 
-                      : 'hover:scale-105  transition duration-500  text-3xl py-3 sm:text-2xl px-3 cursor-pointer'}
+                      : 'hover:scale-105  transition  text-3xl py-3 sm:text-2xl px-3 cursor-pointer'}
                     key={item.name}           
                     >
                       <span className='flex items-center gap-1'>{item.icon}{item.name}</span>

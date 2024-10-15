@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Paslaugos: React.FC = () => {
+function Paslaugos() {
   return <>
    <div className="bg-headerColor h-screen">
   <div className="relative isolate px-6 pt-14 lg:px-8">
