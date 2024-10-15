@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import Home from '../pages/Home';
-import { useLocation, Location, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { TfiAlignJustify } from 'react-icons/tfi';
-import { GrContact } from 'react-icons/gr';
-import { ImSpoonKnife } from 'react-icons/im';
-import { BiHome } from 'react-icons/bi';
-import { FiPhone } from 'react-icons/fi';
-import { LuMessagesSquare } from 'react-icons/lu';
 import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/react';
 import { RiCloseFill } from 'react-icons/ri';
-import Footer from './Footer';
 
 
 interface NavbarProps {
   navbarLinks: { id: number; name: string; path: string; icon: JSX.Element }[];
   navbarContacts: { id: number; name: string; icon: JSX.Element; path: string }[];
   logoName: string;
+  location: Location;
   setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
   mobileMenuOpen: boolean;
 }

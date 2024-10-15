@@ -1,4 +1,3 @@
-import React from 'react';
 import { HiOutlinePhone } from 'react-icons/hi';
 import { SiFacebook } from 'react-icons/si';
 import { TbMail } from 'react-icons/tb';

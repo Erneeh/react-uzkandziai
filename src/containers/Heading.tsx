@@ -1,4 +1,3 @@
-import React from 'react'
 import Foto1 from '../assets/foto1.jpeg'
 
 const Heading = () => {

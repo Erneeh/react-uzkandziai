@@ -1,17 +1,13 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { Route, BrowserRouter as Router, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header'
 import Routes from './Routes' // Adjust the path if necessary
 import Footer from './components/Footer'
-import { ImSpoonKnife } from 'react-icons/im';
 import { GrContact } from 'react-icons/gr';
 import { BiHome } from 'react-icons/bi';
 import { FiPhone } from 'react-icons/fi';
 import { LuMessagesSquare } from 'react-icons/lu';
-import { PiForkKnife, PiForkKnifeBold } from 'react-icons/pi';
 
 const navbarProps = {
   logoName: 'Testinu.lt',

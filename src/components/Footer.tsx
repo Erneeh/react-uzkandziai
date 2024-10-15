@@ -1,16 +1,14 @@
-import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/react'
-import React, { useState } from 'react'
+import React from 'react'
 import { GrLinkedin } from 'react-icons/gr';
 import { PiMonitorArrowUp } from 'react-icons/pi';
-import { RiCloseFill } from 'react-icons/ri';
-import { TfiAlignJustify } from 'react-icons/tfi'
-import { useLocation, Location, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 
 interface NavbarProps {
   navbarLinks: { id: number; name: string; path: string; icon: JSX.Element }[];
   navbarContacts: { id: number; name: string; icon: JSX.Element; path: string }[];
   logoName: string;
+  location: Location;
   setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
   mobileMenuOpen: boolean;
 }
@@ -36,7 +34,7 @@ const ScrollToTopButton = () => {
   );
 };
 
-const Footer = ({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobileMenuOpen}: NavbarProps) => {
+const Footer = ({ navbarLinks, logoName}: NavbarProps) => {
   const location = useLocation();
 
   return (

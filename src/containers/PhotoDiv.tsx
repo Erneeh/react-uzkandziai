@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import Foto1 from '../assets/foto1.jpeg'
+import { useState } from 'react'
 import photo1 from '../assets/photo1.jpg'
 import photo2 from '../assets/photo2.jpg'
 import photo3 from '../assets/photo3.jpg'
@@ -7,7 +6,6 @@ import photo4 from '../assets/photo4.jpg'
 import photo5 from '../assets/photo5.jpg'
 import photo6 from '../assets/photo6.jpg'
 
-import { MdOutlineCloseFullscreen } from 'react-icons/md';
 
 
 const darbai = [
@@ -22,10 +20,10 @@ const darbai = [
 
 const PhotoDiv = () => {
 
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    const handleImageClick = (image) => {
-      setSelectedImage(image);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    
+    const handleImageClick = (photo: string): void => {
+      setSelectedImage(photo);
     };
   
 
@@ -52,6 +50,7 @@ const PhotoDiv = () => {
     ))};,
     </>
   )
+  
 }
 
 export default PhotoDiv
