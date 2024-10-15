@@ -7,7 +7,7 @@ const kontaktai = [
 	{
 
     icon: <HiOutlinePhone size={28}/>,
-		href: "tel:+862699956",
+		href: "tel:+37062699956",
 		label: "Telefono numeris",
 		handle: "+37062699956",
 	},

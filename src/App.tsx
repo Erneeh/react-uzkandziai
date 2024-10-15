@@ -19,8 +19,8 @@ const navbarProps = {
   ],
 
   navbarContacts: [
-    {id: 1, name: 'Susisiekti', icon: <FiPhone />, path: 'tel:+862929558'},
-    {id: 2, name: 'Parašyti', icon: <LuMessagesSquare />, path: 'sms:+862929558'},
+    {id: 1, name: 'Susisiekti', icon: <FiPhone />, path: 'tel:+37062699956'},
+    {id: 2, name: 'Parašyti', icon: <LuMessagesSquare />, path: 'sms:++37062699956'},
   ]
 }
 
