@@ -1,5 +1,5 @@
 import { HiOutlinePhone } from 'react-icons/hi';
-import { SiFacebook } from 'react-icons/si';
+
 import { TbMail } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 
@@ -47,7 +47,7 @@ function Kontaktai() {
 					 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d42411.004129667366!2d24.25546070893971!3d56.03678818649622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1slt!2slt!4v1729107789429!5m2!1slt!2slt" 
 					className='w-full lg:col-start-2 lg:col-end-4 col-span-2 h-96  rounded-3xl border border-black'
 					loading="lazy" 
-					referrerpolicy="no-referrer-when-downgrade"></iframe>
+					referrerPolicy="no-referrer-when-downgrade"></iframe>
 				</div>
 			</div>
 		</div>

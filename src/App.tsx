@@ -8,6 +8,7 @@ import { GrContact } from 'react-icons/gr';
 import { BiHome } from 'react-icons/bi';
 import { FiPhone } from 'react-icons/fi';
 import { LuMessagesSquare } from 'react-icons/lu';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const navbarProps = {
   logoName: 'Testinu.lt',
@@ -37,6 +38,7 @@ function App() {
       <Header {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location}/>
       <Routes/>
       <Footer {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location}/>
+      <SpeedInsights />
     </Router>
     </>
     
