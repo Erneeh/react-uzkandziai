@@ -37,7 +37,7 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
 
   return (
      <>
-     <header className={`font-sans sticky top-0 scroll-smooth z-10 bg-headerColor text-headerFooterText transform  duration-300 lg:border-none border-b border-black ${ isScrolled ? "bg-inherit " : " p-2 lg:border-none" }`}>
+     <header className={`font-sans sticky top-0 scroll-smooth z-10 bg-headerColor text-headerFooterText transform  duration-300 lg:border-none border-b border-black ${ isScrolled ? "bg-inherit" : " p-2 lg:border-none" }`}>
       <nav aria-label='Global' className={`mx-auto flex items-center justify-evenly p-6 max-w-6xl lg:px-8  lg:border-black duration-300 transform ${ isScrolled ? "bg-headerColor lg:rounded-b-3xl lg:border-b lg:border-x" : "bg-headerColor lg:rounded-3xl lg:border"}`}>
         <div className='flex lg:flex-1'>
           <Link to='/' className='-m-1.5 p-1.5'>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import photo1 from '../assets/photo1.jpg'
-import photo2 from '../assets/photo2.jpg'
-import photo3 from '../assets/photo3.jpg'
+import photo12 from '../assets/photo12.jpg'
+import photo17 from '../assets/photo17.jpg'
+import photo9 from '../assets/photo9.jpg'
 import photo4 from '../assets/photo4.jpg'
 import photo7 from '../assets/photo7.jpg'
 import photo6 from '../assets/photo6.jpg'
@@ -9,9 +9,9 @@ import photo6 from '../assets/photo6.jpg'
 
 
 const darbai = [
-    { photo: photo1 },
-    { photo: photo2 },
-    { photo: photo3 },
+    { photo: photo12 },
+    { photo: photo17 },
+    { photo: photo9 },
     { photo: photo4 },
     { photo: photo7 },
     { photo: photo6 }
