@@ -9,7 +9,7 @@ const Heading = () => {
           <div className="lg:pr-12 lg:pt-4 items-center justify-center flex">
             <div className="lg:max-w-lg m-5">
               <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl text-center">Ir <span className='text-buttonColor'>gražu</span> ir <span className='text-buttonColor'>skanu</span>...</p>
-              <p className="mt-6 text-2xl  sm:text-3xl leading-8 text-headerFooterText font-medium text-center">
+              <p className="mt-6 text-2xl  sm:text-3xl leading-8 text-headerFooterText font-medium text-center tracking-wide">
                 Gardžios užkandžių idėjos, kurias galėsite pritaikyti savo gimtadieniui, susitikimams ir kitoms šventėms. <span className='italic underline'><br></br>Kiekvienas kąsnelis – su meile pagamintas ir kruopščiai atrinktas</span>
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">

@@ -11,7 +11,7 @@ import { LuMessagesSquare } from 'react-icons/lu';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const navbarProps = {
-  logoName: 'Testinu.lt',
+  logoName: 'Sumuštinukai.lt',
   
   navbarLinks: [
     { id: 1, name: 'Pagrindinis', path: '/', icon: <BiHome />},
