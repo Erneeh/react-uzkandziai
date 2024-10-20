@@ -11,6 +11,7 @@ import { LuMessagesSquare } from 'react-icons/lu';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { PiForkKnifeBold } from 'react-icons/pi';
 import { HelmetProvider } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 
 const navbarProps = {
   logoName: 'Sumuštinukai.lt',
@@ -42,6 +43,7 @@ function App() {
       <Routes/>
       <Footer {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location}/>
       <SpeedInsights />
+      <Analytics />
     </Router>
     </HelmetProvider>
     </>
