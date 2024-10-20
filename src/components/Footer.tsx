@@ -24,7 +24,7 @@ const ScrollToTopButton = () => {
       className='lg:w-full w-1/4 flex justify-center items-center gap-2 text-textColor hover:text-headerFooterText font-semibold text-xl px-4 py-3 bg-buttonColor rounded-full shadow lg 
       border border-footerColor cursor-pointer transform 
       hover:scale-110 transition-transform duration-300 ease-in-out 
-      focus:outline-none focus:ring-2 focus:ring-gray-400'
+      focus:outline-none focus:ring-2 focus:ring-textColor'
       aria-label="Scroll to top"
       type="button"
     >
@@ -42,7 +42,9 @@ const Footer = ({ navbarLinks, logoName}: NavbarProps) => {
       <nav className='mx-auto lg:flex lg:flex-row flex flex-col max-w-3xl items-center justify-between text-center pt-4 lg:px-8'
       aria-label="Global">
         <div className='flex-row w-full  lg:w-auto items-center justify-center p-6 lg:border-none border-textColor/30 border-t border-b'>
-        <Link to='/' className='-m-1.5 p-1.5'>
+        <Link to='/' 
+        className='-m-1.5 p-1.5'
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span className='text-2xl text-buttonTextColor'>{logoName}</span>
         </Link>
         </div>
@@ -51,6 +53,7 @@ const Footer = ({ navbarLinks, logoName}: NavbarProps) => {
           
           {navbarLinks.map((item) => (
           <Link to={item.path}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className={ location.pathname === item.path 
             ? 'text-textColor font-semibold transition  text-xl lg:text-2xl px-3 cursor-pointer' 
             : 'hover:scale-105 transition  text-xl lg:text-2xl px-3 cursor-pointer'}

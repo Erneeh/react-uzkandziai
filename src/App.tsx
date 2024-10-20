@@ -9,14 +9,15 @@ import { BiHome } from 'react-icons/bi';
 import { FiPhone } from 'react-icons/fi';
 import { LuMessagesSquare } from 'react-icons/lu';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { PiForkKnifeBold } from 'react-icons/pi';
 
 const navbarProps = {
   logoName: 'Sumuštinukai.lt',
   
   navbarLinks: [
     { id: 1, name: 'Pagrindinis', path: '/', icon: <BiHome />},
-    ///{ id: 1, name: 'Paslaugos', path: '/paslaugos', icon: <PiForkKnifeBold />},
-    { id: 1, name: 'Kontaktai', path: '/kontaktai', icon: <GrContact />},
+    { id: 2, name: 'Galerija', path: '/galerija', icon: <PiForkKnifeBold />},
+    { id: 3, name: 'Kontaktai', path: '/kontaktai', icon: <GrContact />},
   ],
 
   navbarContacts: [
@@ -35,7 +36,7 @@ function App() {
   return (
     <>
     <Router>
-      <Header {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location}/>
+      <Header {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location} />
       <Routes/>
       <Footer {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location}/>
       <SpeedInsights />

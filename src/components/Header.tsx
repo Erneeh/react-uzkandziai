@@ -40,7 +40,9 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
      <header className={`font-sans sticky top-0 scroll-smooth z-10 bg-headerColor text-headerFooterText transform  duration-300 lg:border-none border-b border-black ${ isScrolled ? "bg-inherit" : " p-2 lg:border-none" }`}>
       <nav aria-label='Global' className={`mx-auto flex items-center justify-evenly p-6 max-w-6xl lg:px-8  lg:border-black duration-300 transform ${ isScrolled ? "bg-headerColor lg:rounded-b-3xl lg:border-b lg:border-x" : "bg-headerColor lg:rounded-3xl lg:border"}`}>
         <div className='flex lg:flex-1'>
-          <Link to='/' className='-m-1.5 p-1.5'>
+          <Link to='/' 
+          className='-m-1.5 p-1.5'
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span className='text-2xl'>{logoName}</span>
           </Link>
         </div>
@@ -57,6 +59,7 @@ function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobi
         <PopoverGroup className="hidden lg:flex lg:space-x-12">
         {navbarLinks.map((item) => (
           <Link to={item.path}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className={ location.pathname === item.path 
             ? 'text-headerFooterText font-semibold  underline underline-offset-8 decoration-buttonColor  text-2xl px-3 cursor-pointer' 
             : 'hover:scale-105 transition  text-2xl px-3 cursor-pointer'}
