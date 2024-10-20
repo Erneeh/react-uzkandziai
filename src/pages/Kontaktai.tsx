@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { HiOutlinePhone } from 'react-icons/hi';
 
 import { TbMail } from 'react-icons/tb';
@@ -21,6 +22,11 @@ const kontaktai = [
 
 function Kontaktai() {
   return <>
+  <Helmet>
+      <title>Kontaktai - sumuštinukai.lt</title>
+      <meta name="description" content="Užkandžių padėklai Pasvalyje ir aplinkui – užkandžių padėklai, duonos tortai ir kiti patiekalai šventėms, gimtadieniams ir kitoms progoms. Užsisakykite gardų maistą dabar!" />
+      <meta name="keywords" content="užkandžių padėklai, duonos tortai, šviežias maistas, šventės, gimtadieniai, maistas progoms, Pasvalys, užsakymai, maistas Pasvalyje, švieži produktai, padėklai" />
+  </Helmet>
    <div className="bg-headerColor min-h-screen">
    <div className="">
 			<div className="container flex flex-grow  items-start md:py-32 py-16 justify-center px-4 mx-auto">

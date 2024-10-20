@@ -1,7 +1,14 @@
+import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 const PuslapisNerastas = () => {
   return (
+    <>
+    <Helmet>
+      <title>404 - sumuštinukai.lt</title>
+      <meta name="description" content="Welcome to my awesome website!" />
+      <meta name="keywords" content="React, SEO, awesome website" />
+  </Helmet>
     <div className="bg-headerColor h-screen">
         <div className='flex flex-col  items-center justify-star pt-16'>
             <h1 className="text-5xl font-bold text-buttonColor">404</h1>
@@ -19,6 +26,7 @@ const PuslapisNerastas = () => {
             </Link>
         </div>
     </div>
+    </>
   )
 }
 

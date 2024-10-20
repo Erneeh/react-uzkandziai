@@ -10,6 +10,7 @@ import { FiPhone } from 'react-icons/fi';
 import { LuMessagesSquare } from 'react-icons/lu';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { PiForkKnifeBold } from 'react-icons/pi';
+import { HelmetProvider } from 'react-helmet-async';
 
 const navbarProps = {
   logoName: 'Sumuštinukai.lt',
@@ -35,12 +36,14 @@ function App() {
 
   return (
     <>
+    <HelmetProvider>
     <Router>
       <Header {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location} />
       <Routes/>
       <Footer {...navbarProps} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} location={location}/>
       <SpeedInsights />
     </Router>
+    </HelmetProvider>
     </>
     
   )
