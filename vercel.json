@@ -1,17 +1,5 @@
 {
     "rewrites": [
-      {
-        "source": "/galerija",
-        "destination": "https://www.sumustinukai.lt/galerija"
-      },
-      {
-        "source": "/kontaktai",
-        "destination": "https://www.sumustinukai.lt/kontaktai"
-      },
-      {
-        "source": "/(.*)",
-      "destination": "/index.html"
-      }
+      { "source": "/(.*)", "destination": "/" }
     ]
   }
-  
