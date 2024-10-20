@@ -1,6 +1,23 @@
 My first React project using typescript + vite, tailwind
 
-Creating a simple website for my mothers products
+Creating a simple landing website for my mothers products
+
+//daugumos dalyku nemoku, bet gebu surinkti informacija kurios man reikia internetu ir ja iterpti tinkamai. Sugeba skaityti koda
+// pradejau kurti savo sablona, bet paskui suvokiau, kad tai uzims per daug laiko vien headerio componentui, viska buvau irases, visus kintamuosius ir t.t, gaudamas draugo patarima, kad geriau ne paciam bandyti konstruoti, o imti is interneto ir analizuoti, suprasti kaip viskas vyksta , daug geresnis mokymosi/darbo procesas. Pasiemes tailwind headerio sablona ,viska perrasiau html pavidalu, paskui pridejau ir tailwind klasses, ziuredamas kaip kiekviena klase pritaikytam kiekvienam html elementui viska pakeicia. Viskas pavyko. Pagalvojau, kad reikia sukurti kazka panasaus i routes, kad paspaudus ant kiekvieno linko numesti i kazkoki tai puslapi, ir man nereiketu duplikuoti kodo, tai su chatgpt pagalba kuria labiausiai ir naudojausi, suzinojau kaip parasyti ir susieti su routes.tsx, man tai pavyko. Sugalvojau pakeisti kaip atrodo collapse meniu(dialog siuo atveju) ant mazesniu rezoliuciju nei SM (tailwind formoje), padariau, kad butu sucentruota, ir pridejau borderius po apacia, kad butu pazymetas(UX/UI puseje). Headeris kaip ir done, bet manau dar pridesiu kokia transitiona,animacija, kuri pagrazintu isejima is sono/atgal i ji. sugalvojau panaudoti useLocation funkcija kuri leistu man suzinoti esama vieta ir prilyginti esamai vietai su path.link is objekto/array ir jeigu tai atitinka (panasiai kaip active funkcija) - butu pakeista spalva. (gan basic, bet uztruko siek tiek laiko issiaiskint,bet nebuvo pernelyg sunku.)
+
+//pradejus kurti footeri, pagalvojau, kaip apeit duplikacijos problema su const kintamaisiasi (objektais), kad nereiktu naudoti tu paciu tiek headerio/footerio tsx., tai juos ikeliau i app.tsx ir naudodamas props funkcija imeciau tiek i headeri tiek i footeri. kolkas footeris atrodo kaip headeris, kol dar neturiu ideju kaip padaryt. Bet svarbiausia kad linkai kiekviename kai yra aktyvi pasizymi tiek headeryje tiek footeryje. Toliau is eigos pakeisiu footeri. 
+
+// footeris sutvarkytas, pereinu prie turinio home page ir kituose.
+
+
+
+
+
+
+
+
+
+
 
 
 
