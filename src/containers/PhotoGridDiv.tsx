@@ -19,64 +19,57 @@ import photo17 from '../assets/photo17.jpg'
 import photo18 from '../assets/photo18.jpeg'
 import photo19 from '../assets/photo19.jpeg'
 
-
-
 export const darbai = [
-    { photo: photo1 },
-    { photo: photo2 },
-    { photo: photo3 },
-    { photo: photo4 },
-    { photo: photo5 },
-    { photo: photo6 },
-    { photo: photo7 },
-    { photo: photo8 },
-    { photo: photo9 },
-    { photo: photo10 },
-    { photo: photo11 },
-    { photo: photo12 },
-    { photo: photo13 },
-    { photo: photo14 },
-    { photo: photo15 },
-    { photo: photo16 },
-    { photo: photo17 },
-    { photo: photo18 },
-    { photo: photo19 },
+    { photo: photo1, alt: 'Užkandžių padėklas šventei' },
+    { photo: photo2, alt: 'Užkandžių padėklas su ikrų krepšeliais ir kumpio rožytėmis' },
+    { photo: photo3, alt: 'Mėsos užkandžių padėklas su dekoracijomis' },
+    { photo: photo4, alt: 'Šventinis užkandžių padėklas' },
+    { photo: photo5, alt: 'Užkandžių asorti su mini burgeriais ir krepšeliais' },
+    { photo: photo6, alt: 'Užkandžių padėklas pobūviui' },
+    { photo: photo7, alt: 'Didelis užkandžių padėklas su mini burgeriais' },
+    { photo: photo8, alt: 'Užkandžių padėklas šventiniam stalui' },
+    { photo: photo9, alt: 'Mini burgeris ant lėkštės' },
+    { photo: photo10, alt: 'Užkandžių padėklas svečiams' },
+    { photo: photo11, alt: 'Šventinis užkandžių padėklas su vėrinukais' },
+    { photo: photo12, alt: 'Užkandžių padėklas šventei' },
+    { photo: photo13, alt: 'Šventinių kepinių padėklas' },
+    { photo: photo14, alt: 'Bandelių ir užkandžių padėklas' },
+    { photo: photo15, alt: 'Užkandžių padėklas šventei' },
+    { photo: photo16, alt: 'Šventinis užkandžių padėklas' },
+    { photo: photo17, alt: 'Krepšelis su lašiša ir avokado kremu' },
+    { photo: photo18, alt: 'Skaičiaus formos užkandžių tortas gimtadieniui' },
+    { photo: photo19, alt: 'Dekoruotas duonos tortas' },
   ];
 
 
 const PhotoGridDiv = ({ limit }: { limit: number}) => {
 
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    
-    const handleImageClick = (photo: string): void => {
-      setSelectedImage(photo);
-    };
-  
+  const [selectedImage, setSelectedImage] = useState<{ photo: string; alt: string } | null>(null);
 
   return (
     <>
-    {darbai.slice(0, limit).map((items, index) => (
-            <><img
-            alt="Product photo"
-            key={index}
-            src={items.photo}
-            className={`relative flex flex-col items-center duration-700 group rounded-3xl hover:scale-105 cursor-pointer col-span-2`}
-            onClick={() => handleImageClick(items.photo)} />
-                {selectedImage && (
-                    <div
-                        className="fixed inset-0 z-10 flex flex-col items-center justify-center bg-black bg-opacity-20 cursor-pointer"
-                        onClick={() => setSelectedImage(null)}
-                    ><img
-                            src={selectedImage}
-                            alt="Enlarged"
-                            className="w-auto lg:h-2/3" />
-                    </div>
-                )}
-        </>
+    {darbai.slice(0, limit).map((items) => (
+        <img
+        alt={items.alt}
+        key={items.photo}
+        src={items.photo}
+        loading="lazy"
+        className="relative flex flex-col items-center duration-700 group rounded-3xl hover:scale-105 cursor-pointer col-span-2"
+        onClick={() => setSelectedImage(items)} />
     ))}
+    {selectedImage && (
+        <div
+            className="fixed inset-0 z-10 flex flex-col items-center justify-center bg-black bg-opacity-20 cursor-pointer"
+            onClick={() => setSelectedImage(null)}
+        ><img
+                src={selectedImage.photo}
+                alt={selectedImage.alt}
+                className="w-auto lg:h-2/3" />
+        </div>
+    )}
     </>
   )
-  
+
 }
 
 export default PhotoGridDiv

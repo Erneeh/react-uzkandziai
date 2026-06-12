@@ -1,26 +1,30 @@
 import Foto1 from '../assets/foto1.jpeg'
+import CallCta from '../components/CallCta'
 
 const Heading = () => {
   return (
     <>
     <div className="overflow-hidden bg-headerColor py-10 sm:py-16">
-      <div className="mx-auto">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pr-12 lg:pt-4 items-center justify-center flex">
-            <div className="lg:max-w-lg m-5">
-              <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl text-center">Ir <span className='text-buttonColor'>gražu</span> ir <span className='text-buttonColor'>skanu</span>...</p>
-              <p className="mt-6 text-2xl  sm:text-3xl leading-8 text-headerFooterText font-medium text-center tracking-wide">
-                Gardžios užkandžių idėjos, kurias galėsite pritaikyti savo gimtadieniui, susitikimams ir kitoms šventėms. <span className='italic underline'><br></br>Kiekvienas kąsnelis – su meile pagamintas ir kruopščiai atrinktas</span>
-              </p>
-              <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                
-              </dl>
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-y-10 gap-x-12 lg:grid-cols-2 items-center">
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              Užkandžių padėklai Pasvalyje – ir <span className='text-buttonColor'>gražu</span>, ir <span className='text-buttonColor'>skanu</span>
+            </h1>
+            <p className="mt-6 text-xl sm:text-2xl leading-relaxed text-headerFooterText font-medium">
+              Ruošiame užkandžių padėklus, duonos tortus ir vaišių stalus gimtadieniams, vestuvėms,
+              krikštynoms ir kitoms šventėms. Pasakykite progą ir svečių skaičių – visa kita padarysime mes.
+            </p>
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <CallCta trustLine="Tikslią kainą sužinosite vienu skambučiu" />
             </div>
           </div>
           <img
-            alt="Product screenshot"
+            alt="Užkandžių padėklas su mini sumuštinukais, vyniotiniais ir užkandžių vėrinukais"
             src={Foto1}
-            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-full md:-ml-4 lg:-ml-0 brightness-50 m-5"
+            width={1024}
+            height={678}
+            className="w-full rounded-xl shadow-xl ring-1 ring-gray-400/10 object-cover"
           />
         </div>
       </div>

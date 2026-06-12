@@ -5,9 +5,8 @@ const PuslapisNerastas = () => {
   return (
     <>
     <Helmet>
-      <title>404 - sumuštinukai.lt</title>
-      <meta name="description" content="Welcome to my awesome website!" />
-      <meta name="keywords" content="React, SEO, awesome website" />
+      <title>404 – Puslapis nerastas | Sumuštinukai.lt</title>
+      <meta name="description" content="Toks puslapis nerastas. Grįžkite į pagrindinį puslapį ir užsisakykite užkandžių padėklus savo šventei." />
   </Helmet>
     <div className="bg-headerColor h-screen">
         <div className='flex flex-col  items-center justify-star pt-16'>

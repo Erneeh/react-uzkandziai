@@ -10,6 +10,7 @@ import { FiPhone } from 'react-icons/fi';
 import { LuMessagesSquare } from 'react-icons/lu';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { PiForkKnifeBold } from 'react-icons/pi';
+import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import { HelmetProvider } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -18,8 +19,9 @@ const navbarProps = {
   
   navbarLinks: [
     { id: 1, name: 'Pagrindinis', path: '/', icon: <BiHome />},
-    { id: 2, name: 'Galerija', path: '/galerija', icon: <PiForkKnifeBold />},
-    { id: 3, name: 'Kontaktai', path: '/kontaktai', icon: <GrContact />},
+    { id: 2, name: 'Paslaugos', path: '/paslaugos', icon: <MdOutlineRestaurantMenu />},
+    { id: 3, name: 'Galerija', path: '/galerija', icon: <PiForkKnifeBold />},
+    { id: 4, name: 'Kontaktai', path: '/kontaktai', icon: <GrContact />},
   ],
 
   navbarContacts: [

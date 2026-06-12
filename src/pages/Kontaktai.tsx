@@ -29,7 +29,13 @@ function Kontaktai() {
   </Helmet>
    <div className="bg-headerColor min-h-screen">
    <div className="">
-			<div className="container flex flex-grow  items-start md:py-32 py-16 justify-center px-4 mx-auto">
+      <div className="mx-auto max-w-3xl px-6 pt-12 sm:pt-16 text-center text-headerFooterText">
+        <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900">Susisiekite – atsakysime greitai</h1>
+        <p className="mt-4 text-xl sm:text-2xl">
+          Paskambinkite arba parašykite – pasakykite progą, datą ir svečių skaičių, o mes pasiūlysime, kas tiks jūsų šventei.
+        </p>
+      </div>
+			<div className="container flex flex-grow  items-start md:py-16 py-10 justify-center px-4 mx-auto">
 				<div className="grid w-full grid-cols-2 gap-8 mx-auto mt-16 sm:mt-0 mb-5 lg:grid-cols-4 lg:gap-16 border-black">
 					{kontaktai.map((items) => (
 							<Link

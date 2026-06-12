@@ -2,6 +2,7 @@ import React from 'react'
 import { GrLinkedin } from 'react-icons/gr';
 import { PiMonitorArrowUp } from 'react-icons/pi';
 import { useLocation, Link } from 'react-router-dom';
+import { services } from '../data/services';
 
 
 interface NavbarProps {
@@ -39,6 +40,20 @@ const Footer = ({ navbarLinks, logoName}: NavbarProps) => {
   return (
     <>
     <footer className='bg-footerColor font-sans bottom-0 py-6 border-buttonRingColor border-t text-textColor'>
+      <nav className='mx-auto max-w-3xl flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center pt-4 px-4 lg:px-8' aria-label="Paslaugos">
+        {services.map((service) => (
+          <Link
+            key={service.slug}
+            to={`/${service.slug}`}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className={ location.pathname === `/${service.slug}`
+              ? 'text-textColor font-semibold text-base px-2 py-1 cursor-pointer underline underline-offset-4 decoration-buttonColor'
+              : 'hover:scale-105 transition text-base px-2 py-1 cursor-pointer text-headerFooterText'}
+          >
+            {service.navTitle}
+          </Link>
+        ))}
+      </nav>
       <nav className='mx-auto lg:flex lg:flex-row flex flex-col max-w-3xl items-center justify-between text-center pt-4 lg:px-8'
       aria-label="Global">
         <div className='flex-row w-full  lg:w-auto items-center justify-center p-6 lg:border-none border-textColor/30 border-t border-b'>

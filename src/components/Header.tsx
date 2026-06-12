@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, Link } from 'react-router-dom';
 import { TfiAlignJustify } from 'react-icons/tfi';
-import { Dialog, DialogPanel, PopoverGroup } from '@headlessui/react';
+import { Dialog, DialogPanel } from '@headlessui/react';
 import { RiCloseFill } from 'react-icons/ri';
-
+import { FiPhone } from 'react-icons/fi';
+import { PHONE_HREF } from '../data/services';
 
 interface NavbarProps {
   navbarLinks: { id: number; name: string; path: string; icon: JSX.Element }[];
@@ -14,135 +15,121 @@ interface NavbarProps {
   mobileMenuOpen: boolean;
 }
 
-function Header({ navbarLinks, logoName, navbarContacts, mobileMenuOpen, setMobileMenuOpen}: NavbarProps) {
+function Header({ navbarLinks, logoName, mobileMenuOpen, setMobileMenuOpen }: NavbarProps) {
   const location = useLocation();
- 
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-     <>
-     <header className={`font-sans sticky top-0 scroll-smooth z-10 bg-headerColor text-headerFooterText transform  duration-300 lg:border-none border-b border-black ${ isScrolled ? "bg-inherit" : " p-2 lg:border-none" }`}>
-      <nav aria-label='Global' className={`mx-auto flex items-center justify-evenly p-6 max-w-6xl lg:px-8  lg:border-black duration-300 transform ${ isScrolled ? "bg-headerColor lg:rounded-b-3xl lg:border-b lg:border-x" : "bg-headerColor lg:rounded-3xl lg:border"}`}>
-        <div className='flex lg:flex-1'>
-          <Link to='/' 
-          className='-m-1.5 p-1.5'
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span className='text-2xl'>{logoName}</span>
-          </Link>
-        </div>
-        <div className='flex lg:hidden'>
-          <button 
-          type="button"
-          onClick={() => setMobileMenuOpen(true)}
-          className='-m-2.5 inline-flex items-center justify-center rounded-md p-2.5'
-          >
-          <span className='sr-only'>Atidaryti</span>
-          <TfiAlignJustify aria-hidden="true" className='h-6 w-6'/>
-          </button>
-        </div>
-        <PopoverGroup className="hidden lg:flex lg:space-x-12">
-        {navbarLinks.map((item) => (
-          <Link to={item.path}
+    <>
+    <header className={`font-sans sticky top-0 z-10 bg-headerColor text-headerFooterText duration-300 ${isScrolled ? 'shadow-sm border-b border-black/10' : ''}`}>
+      <nav
+        aria-label="Global"
+        className="mx-auto flex items-center justify-between px-6 py-3 max-w-6xl lg:px-8"
+      >
+        {/* Logo */}
+        <Link
+          to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className={ location.pathname === item.path 
-            ? 'text-headerFooterText font-semibold  underline underline-offset-8 decoration-buttonColor  text-2xl px-3 cursor-pointer' 
-            : 'hover:scale-105 transition  text-2xl px-3 cursor-pointer'}
-          key={item.name}           
-          >
-          <span className='lg:flex items-center gap-1'>
-            {item.icon}
-            {item.name}
-          </span>
-          </Link>
-        ))}
-        </PopoverGroup>
-        <div className='hidden lg:flex lg:flex-1 lg:justify-end lg:space-x-3'>
-          {navbarContacts.map((item) => (
-            <a href={item.path}
-            >
-              <button 
-              className='flex justify-center items-center gap-2 font-semibold text-textColor hover:text-headerFooterText text-xl px-4 py-4 bg-buttonColor rounded-full shadow lg 
-                 border border-footerColor cursor-pointer transform
-                 hover:scale-110 transition-transform duration-300 ease-in-out 
-                 focus:outline-none focus:ring-2 focus:ring-textColor'
+          className="shrink-0 text-xl font-semibold tracking-tight"
+        >
+          {logoName}
+        </Link>
+
+        {/* Desktop nav links */}
+        <div className="hidden lg:flex items-center gap-6">
+          {navbarLinks.map((item) => (
+            <Link
               key={item.name}
-              type="button"
-              >
-              {item.icon}
-              </button>
-            </a>
+              to={item.path}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className={`flex items-center gap-1.5 text-lg px-1 py-1 transition-all duration-200 ${
+                location.pathname === item.path
+                  ? 'font-semibold underline underline-offset-8 decoration-buttonColor'
+                  : 'hover:text-buttonColor'
+              }`}
+            >
+              <span className="text-base opacity-70">{item.icon}</span>
+              {item.name}
+            </Link>
           ))}
         </div>
+
+        {/* Desktop CTA */}
+        <a
+          href={PHONE_HREF}
+          className="hidden lg:inline-flex items-center gap-2 bg-buttonColor text-textColor font-semibold text-base px-5 py-2.5 rounded-full shadow border border-footerColor hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-textColor shrink-0"
+        >
+          <FiPhone className="h-4 w-4" />
+          Užsisakykite
+        </a>
+
+        {/* Mobile hamburger */}
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen(true)}
+          className="lg:hidden -m-2 p-2 rounded-md"
+          aria-label="Atidaryti meniu"
+        >
+          <TfiAlignJustify className="h-6 w-6" />
+        </button>
       </nav>
+
+      {/* Mobile slide-in menu */}
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <div className='fixed inset-0 z-10 ' />
-          <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-headerColor px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-headerFooterText/10 sm:border-black sm:border-l-2 ">
-            <div className='flex items-center justify-around'>
-              <Link to='/' className='-m-1.5 p-1.5'>
-              <span className='text-2xl'>{logoName}</span>
-              </Link>
-              <button
-              type='button'
+        <div className="fixed inset-0 z-10 bg-black/20" />
+        <DialogPanel className="fixed inset-y-0 right-0 z-20 w-full overflow-y-auto bg-headerColor px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-headerFooterText/10 sm:border-l-2 sm:border-black/20">
+          <div className="flex items-center justify-between mb-8">
+            <Link to="/" className="text-xl font-semibold tracking-tight" onClick={() => setMobileMenuOpen(false)}>
+              {logoName}
+            </Link>
+            <button
+              type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className='-m-2.5 rounded-lg p-2.5 '
+              className="-m-2 p-2 rounded-lg"
+              aria-label="Uždaryti meniu"
+            >
+              <RiCloseFill className="h-6 w-6" />
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            {navbarLinks.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                className={`flex items-center gap-2 text-2xl py-3 px-2 rounded-xl transition-all ${
+                  location.pathname === item.path
+                    ? 'font-semibold underline underline-offset-8 decoration-buttonColor'
+                    : 'hover:bg-black/5'
+                }`}
               >
-                <span className='sr-only'>Uždaryti</span>
-                <RiCloseFill aria-hidden='true' className='h-6 w-6' />
-              </button>
-            </div>
-            <div className='mt-6 flow-root'>
-              <div className='-my-6 divide-y divide-gray-800/30'> 
-                <div className='space-y-2 py-12 sm:py-6 items-center justify-center flex flex-col sm:flex sm:flex-col sm:items-start'>
-                  {navbarLinks.map((item) => (
-                    <Link to={item.path}
-                    className={ location.pathname === item.path 
-                      ? 'text-headerFooterText font-semibold  text-3xl  py-3 sm:text-2xl px-3 cursor-pointer  underline underline-offset-8 decoration-buttonColor' 
-                      : 'hover:scale-105  transition  text-3xl py-3 sm:text-2xl px-3 cursor-pointer'}
-                    key={item.name}           
-                    >
-                      <span className='flex items-center gap-1'>{item.icon}{item.name}</span>
-                    </Link>
-                  ))}
-                </div>
-                <div className='py-6 flex flex-row justify-between '>
-                {navbarContacts.map((item) => (
-                  <a href={item.path}
-                  className='w-1/2 text-center items-center justify-center flex'>
-                    <button
-                    className='flex justify-center items-center gap-2  font-semibold text-textColor hover:text-headerFooterText text-xl px-4 py-4 bg-buttonColor rounded-full shadow lg 
-                 border border-footerColor cursor-pointer transform 
-                 hover:scale-110 transition-transform duration-300 ease-in-out 
-                 focus:outline-none focus:ring-2 focus:ring-gray-400 w-3/4'
-                    key={item.name}
-                    type="button"
-                    >{item.icon}
-                    </button>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </DialogPanel>
+                <span className="opacity-60">{item.icon}</span>
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-black/10">
+            <a
+              href={PHONE_HREF}
+              className="flex items-center justify-center gap-2 bg-buttonColor text-textColor font-semibold text-xl px-6 py-4 rounded-full shadow border border-footerColor hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-textColor"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <FiPhone className="h-5 w-5" />
+              Užsisakykite
+            </a>
+          </div>
+        </DialogPanel>
       </Dialog>
-     </header>
-     
-     </>
+    </header>
+    </>
   )
 }
 
