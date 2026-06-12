@@ -1,5 +1,5 @@
 import { FiPhone } from 'react-icons/fi'
-import { PHONE_DISPLAY, PHONE_HREF } from '../data/services'
+import { PHONE_HREF } from '../data/services'
 
 interface CallCtaProps {
   label?: string
