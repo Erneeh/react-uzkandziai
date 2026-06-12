@@ -1,9 +1,7 @@
 import React from 'react'
 import { GrLinkedin } from 'react-icons/gr';
-import { PiMonitorArrowUp } from 'react-icons/pi';
 import { useLocation, Link } from 'react-router-dom';
 import { services } from '../data/services';
-
 
 interface NavbarProps {
   navbarLinks: { id: number; name: string; path: string; icon: JSX.Element }[];
@@ -14,87 +12,82 @@ interface NavbarProps {
   mobileMenuOpen: boolean;
 }
 
-const ScrollToTopButton = () => {
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+const Footer = ({ logoName }: NavbarProps) => {
+  const location = useLocation();
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <button
-      onClick={handleScrollToTop}
-      className='lg:w-full w-1/4 flex justify-center items-center gap-2 text-textColor hover:text-headerFooterText font-semibold text-xl px-4 py-3 bg-buttonColor rounded-full shadow lg 
-      border border-footerColor cursor-pointer transform 
-      hover:scale-110 transition-transform duration-300 ease-in-out 
-      focus:outline-none focus:ring-2 focus:ring-textColor'
-      aria-label="Scroll to top"
-      type="button"
-    >
-      <PiMonitorArrowUp className='w-6 h-6' />
-    </button>
+    <footer className="bg-footerColor font-sans border-t border-black/10 pt-10 pb-6 text-headerFooterText">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+
+        {/* Top row: logo + service links */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+          {/* Logo */}
+          <div className="shrink-0">
+            <Link to="/" onClick={scrollTop} className="text-xl font-semibold tracking-tight">
+              {logoName}
+            </Link>
+          </div>
+
+          {/* Service links */}
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-headerFooterText/60 mb-3">Paslaugos</p>
+            <ul className="flex flex-wrap gap-x-4 gap-y-2">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    to={`/${service.slug}`}
+                    onClick={scrollTop}
+                    className={`text-base transition hover:text-buttonColor ${
+                      location.pathname === `/${service.slug}` ? 'font-semibold underline underline-offset-4 decoration-buttonColor' : ''
+                    }`}
+                  >
+                    {service.navTitle}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="my-8 border-t border-black/10" />
+
+        {/* Bottom row: nav links + attribution */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-headerFooterText/70">
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+            {[
+              { name: 'Pagrindinis', path: '/' },
+              { name: 'Paslaugos', path: '/paslaugos' },
+              { name: 'Galerija', path: '/galerija' },
+              { name: 'Kontaktai', path: '/kontaktai' },
+            ].map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={scrollTop}
+                className={`transition hover:text-headerFooterText ${
+                  location.pathname === item.path ? 'font-semibold text-headerFooterText' : ''
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          <a
+            href="https://www.linkedin.com/in/ernestas-undz%C4%97nas-b8a814213/"
+            className="flex items-center gap-1.5 hover:text-headerFooterText transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sukurta: <GrLinkedin />
+          </a>
+        </div>
+
+      </div>
+    </footer>
   );
 };
 
-const Footer = ({ navbarLinks, logoName}: NavbarProps) => {
-  const location = useLocation();
-
-  return (
-    <>
-    <footer className='bg-footerColor font-sans bottom-0 py-6 border-buttonRingColor border-t text-textColor'>
-      <nav className='mx-auto max-w-3xl flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center pt-4 px-4 lg:px-8' aria-label="Paslaugos">
-        {services.map((service) => (
-          <Link
-            key={service.slug}
-            to={`/${service.slug}`}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={ location.pathname === `/${service.slug}`
-              ? 'text-textColor font-semibold text-base px-2 py-1 cursor-pointer underline underline-offset-4 decoration-buttonColor'
-              : 'hover:scale-105 transition text-base px-2 py-1 cursor-pointer text-headerFooterText'}
-          >
-            {service.navTitle}
-          </Link>
-        ))}
-      </nav>
-      <nav className='mx-auto lg:flex lg:flex-row flex flex-col max-w-3xl items-center justify-between text-center pt-4 lg:px-8'
-      aria-label="Global">
-        <div className='flex-row w-full  lg:w-auto items-center justify-center p-6 lg:border-none border-textColor/30 border-t border-b'>
-        <Link to='/' 
-        className='-m-1.5 p-1.5'
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span className='text-2xl text-buttonTextColor'>{logoName}</span>
-        </Link>
-        </div>
-
-        <div className='flex-row flex w-auto lg:flex lg:w-auto items-center justify-center lg:p-6 p-2'>
-          
-          {navbarLinks.map((item) => (
-          <Link to={item.path}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className={ location.pathname === item.path 
-            ? 'text-textColor font-semibold transition  text-xl lg:text-2xl px-3 cursor-pointer' 
-            : 'hover:scale-105 transition  text-xl lg:text-2xl px-3 cursor-pointer'}
-          key={item.name}           
-          >
-          <span className='flex items-center gap-1 rounded-2xl p-2.5 '>
-            {item.name}
-          </span>
-          </Link>
-        ))}
-          
-        </div>
-
-        <div className='flex-row w-full lg:flex lg:w-auto items-center flex justify-center lg:p-6 '>
-        <ScrollToTopButton />
-        </div>
-      </nav>
-      <div className='mx-auto lg:flex lg:flex-row flex flex-col max-w-3xl items-center justify-center text-center p-2 lg:px-8'>
-        <a href="https://www.linkedin.com/in/ernestas-undz%C4%97nas-b8a814213/"
-        className='flex items-center space-x-3 text-headerFooterText hover:text-textColor hover:scale-105 transition duration-300 pt-5'>
-        <span>Sukurta:  </span><GrLinkedin/>
-        </a>
-      </div>
-    </footer>
-    </>
-  )
-}
-
-export default Footer
+export default Footer;
